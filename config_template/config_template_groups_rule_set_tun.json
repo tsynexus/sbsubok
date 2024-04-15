@@ -57,7 +57,7 @@
         "server": "proxyDns"
       },
       {
-        "rule_set": ["geolocation-!cn", "geosite-disney", "geosite-netflix", "geosite-youtube", "geosite-tiktok", "geosite-openai", "geosite-telegram", "geosite-google"],
+        "rule_set": "geosite-geolocation-!cn",
         "server": "proxyDns"
       }
     ],
@@ -77,14 +77,14 @@
       "platform": {
         "http_proxy": {
           "enabled": true,
-          "server": "0.0.0.0",
+          "server": "127.0.0.1",
           "server_port": 2080
         }
       }
     },
     {
       "type": "mixed",
-      "listen": "0.0.0.0",
+      "listen": "127.0.0.1",
       "listen_port": 2080,
       "sniff": true,
       "users": []
@@ -361,7 +361,6 @@
       "type":"selector",
       "outbounds":[
         "{all}"
-        "direct"
       ],
       "filter":[
         {"action":"exclude","keywords":["🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美"]}
