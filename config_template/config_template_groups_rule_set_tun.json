@@ -57,7 +57,7 @@
         "server": "proxyDns"
       },
       {
-        "rule_set": "geosite-geolocation-!cn",
+        "rule_set": ["geolocation-!cn", "geosite-disney", "geosite-netflix", "geosite-youtube", "geosite-tiktok", "geosite-openai", "geosite-telegram", "geosite-google"],
         "server": "proxyDns"
       }
     ],
