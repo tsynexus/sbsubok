@@ -101,7 +101,7 @@
       ]
     },
     {
-      "tag":"Others",
+      "tag":"Proxy_S",
       "type":"selector",
       "outbounds":[
         "direct",
@@ -340,7 +340,7 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "Others",
+    "final": "Proxy_S",
     "rules": [
       {
         "type": "logical",
