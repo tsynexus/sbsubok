@@ -101,6 +101,14 @@
       ]
     },
     {
+      "tag":"Others",
+      "type":"selector",
+      "outbounds":[
+        "direct",
+        "Proxy"
+      ]
+    },    
+    {
       "tag":"OpenAI",
       "type":"selector",
       "outbounds":[
@@ -112,6 +120,14 @@
       ],
       "default": "America"
     },
+    {
+      "tag":"Media",
+      "type":"selector",
+      "outbounds":[
+        "direct",
+        "Proxy"
+      ]
+    },        
     {
       "tag":"Google",
       "type":"selector",
@@ -178,19 +194,6 @@
       ]
     },
     {
-      "tag":"Spotify",
-      "type":"selector",
-      "outbounds":[
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ],
-      "default": "America"
-    },
-    {
       "tag":"TikTok",
       "type":"selector",
       "outbounds":[
@@ -201,30 +204,6 @@
         "America"
       ],
       "default": "Japan"
-    },
-    {
-      "tag":"NETFLIX",
-      "type":"selector",
-      "outbounds":[
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ]
-    },
-    {
-      "tag":"Disney+",
-      "type":"selector",
-      "outbounds":[
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ]
     },
     {
       "tag":"Apple",
@@ -253,31 +232,6 @@
       ]
     },
     {
-      "tag":"Games",
-      "type":"selector",
-      "outbounds":[
-        "direct",
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ]
-    },
-    {
-      "tag":"Streaming",
-      "type":"selector",
-      "outbounds":[
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ]
-    },
-    {
       "tag":"Global",
       "type":"selector",
       "outbounds":[ 
@@ -288,14 +242,6 @@
         "America",
         "Others",
         "direct"
-      ]
-    },
-    {
-      "tag":"China",
-      "type":"selector",
-      "outbounds":[
-        "direct",
-        "Proxy"
       ]
     },
     {
@@ -394,7 +340,7 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "Proxy",
+    "final": "Others",
     "rules": [
       {
         "type": "logical",
@@ -420,15 +366,6 @@
       {
         "clash_mode": "global",
         "outbound": "Proxy"
-      },
-      {
-        "domain": [
-          "clash.razord.top",
-          "yacd.metacubex.one",
-          "yacd.haishan.me",
-          "d.metacubex.one"
-        ],
-        "outbound": "direct"
       },
       {
         "rule_set": "geosite-openai",
@@ -459,20 +396,12 @@
         "outbound": "Bahamut"
       },
       {
-        "rule_set": "geosite-spotify",
-        "outbound": "Spotify"
-      },
-      {
         "rule_set": "geosite-tiktok",
         "outbound": "TikTok"
       },
       {
         "rule_set": ["geoip-netflix", "geosite-netflix"],
-        "outbound": "NETFLIX"
-      },
-      {
-        "rule_set": "geosite-disney",
-        "outbound": "Disney+"
+        "outbound": "Media"
       },
       {
         "rule_set": ["geoip-apple", "geosite-apple", "geosite-amazon"],
@@ -481,14 +410,6 @@
       {
         "rule_set": "geosite-microsoft",
         "outbound": "Microsoft"
-      },
-      {
-        "rule_set": "geosite-category-games",
-        "outbound": "Games"
-      },
-      {
-        "rule_set": ["geosite-hbo", "geosite-primevideo"],
-        "outbound": "Streaming"
       },
       {
         "rule_set": "geosite-geolocation-!cn",
@@ -635,13 +556,6 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-spotify",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/spotify.srs",
-        "download_detour": "direct"
-      },
-      {
         "tag": "geosite-tiktok",
         "type": "remote",
         "format": "binary",
@@ -653,13 +567,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/netflix.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-disney",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/disney.srs",
         "download_detour": "direct"
       },
       {
@@ -681,27 +588,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/microsoft.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-category-games",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-games.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-hbo",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/hbo.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-primevideo",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/primevideo.srs",
         "download_detour": "direct"
       },
       {
