@@ -425,7 +425,7 @@
       },
       {
         "rule_set": ["geoip-cn", "geosite-cn"],
-        "outbound": "China"
+        "outbound": "direct"
       }
     ],
     "rule_set": [
