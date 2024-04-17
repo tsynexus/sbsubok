@@ -457,7 +457,7 @@
         "type": "remote",
         "tag": "a_link",
         "format": "source",
-        "url": "https://raw.githubusercontent.com/tsynexus/config/a_link.json",
+        "url": "https://raw.githubusercontent.com/tsynexus/config/main/a_link.json",
         "download_detour": "Proxy",
         "update_interval": "30m"
       },
@@ -465,7 +465,7 @@
         "type": "remote",
         "tag": "d_link",
         "format": "source",
-        "url": "https://raw.githubusercontent.com/tsynexus/config/d_link.json",
+        "url": "https://raw.githubusercontent.com/tsynexus/config/main/d_link.json",
         "download_detour": "Proxy",
         "update_interval": "10m"
       },
@@ -473,7 +473,7 @@
         "type": "remote",
         "tag": "p_link",
         "format": "source",
-        "url": "https://raw.githubusercontent.com/tsynexus/config/p_link.json",
+        "url": "https://raw.githubusercontent.com/tsynexus/config/main/p_link.json",
         "download_detour": "Proxy",
         "update_interval": "10m"
       }      
