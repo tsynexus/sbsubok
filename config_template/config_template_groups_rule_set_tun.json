@@ -45,10 +45,6 @@
         "disable_cache": true
       },
       {
-        "rule_set": "geosite-cn",
-        "server": "localDns"
-      },   
-      {
         "clash_mode": "direct",
         "server": "localDns"
       },
@@ -57,11 +53,15 @@
         "server": "proxyDns"
       },
       {
-        "rule_set": "geosite-geolocation-!cn",
+        "rule_set": ["geosite-bilibili","geosite-cn","geosite-private","geosite-bilibili"],
+        "server": "localDns"
+      },   
+      {
+        "rule_set": ["geosite-openai","geosite-youtube","geosite-google","geosite-github","geosite-telegram","geosite-twitter","geosite-facebook","geosite-tiktok","geosite-netflix","geosite-amazon","geosite-geolocation-!cn"],
         "server": "proxyDns"
       }
     ],
-    "final": "localDns",
+    "final": "proxyDns",
     "strategy": "ipv4_only"
   },
   "inbounds": [
@@ -268,31 +268,19 @@
         "outbound": "OpenAI"
       },
       {
-        "rule_set": ["geosite-youtube", "geoip-google", "geosite-google", "geosite-github"],
-        "outbound": "Proxy"
-      },
-      {
         "rule_set": "geosite-tiktok",
         "outbound": "TikTok"
       },
       {
-        "rule_set": ["geoip-netflix", "geosite-netflix"],
-        "outbound": "Media"
-      },
-      {
-        "rule_set": "geosite-geolocation-!cn",
+        "rule_set": ["geoip-google","geoip-telegram","geoip-twitter","geoip-facebook","geosite-google","geosite-github","geosite-telegram","geosite-twitter","geosite-facebook","geosite-amazon","geosite-geolocation-!cn"],
         "outbound": "Proxy"
       },
       {
-        "rule_set": "geosite-private",
-        "outbound": "direct"
+        "rule_set": ["geoip-netflix", "geosite-netflix","geosite-youtube"],
+        "outbound": "Media"
       },
       {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "rule_set": ["geoip-cn", "geosite-cn"],
+        "rule_set": ["geoip-cn", "geosite-cn","geosite-private","geosite-bilibili","geosite-bilibili"],
         "outbound": "direct"
       }
     ],
