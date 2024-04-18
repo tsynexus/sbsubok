@@ -251,10 +251,6 @@
         "outbound": "dns-out"
       },
       {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","a_link"],
-        "outbound": "AdBlock"
-      },
-      {
         "clash_mode": "direct",
         "outbound": "direct"
       },
@@ -285,7 +281,11 @@
       {
         "rule_set": ["geoip-google","geoip-telegram","geoip-twitter","geoip-facebook","geosite-google","geosite-telegram","geosite-twitter","geosite-facebook","geosite-amazon","geosite-geolocation-!cn"],
         "outbound": "Proxy"
-      }
+      },
+      {
+        "rule_set": ["geosite-category-ads-all","geosite-adblock","a_link"],
+        "outbound": "AdBlock"
+      }      
     ],
     "rule_set": [
       {
