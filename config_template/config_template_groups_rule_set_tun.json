@@ -263,6 +263,10 @@
         "outbound": "Proxy"
       },      
       {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
         "rule_set": ["geoip-cn","geosite-cn","geosite-private","geosite-apple","geosite-microsoft","geosite-bilibili","geosite-bilibili","alibaba","d_link"],
         "outbound": "direct"
       },
