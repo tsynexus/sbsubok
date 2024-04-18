@@ -36,10 +36,6 @@
     ],
     "rules": [
       {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","a_link"],
-        "server": "block"
-      },
-      {
         "outbound": "any",
         "server": "localDns",
         "disable_cache": true
@@ -59,6 +55,10 @@
       {
         "rule_set": ["geosite-openai","geosite-youtube","geosite-google","geosite-github","geosite-telegram","geosite-twitter","geosite-facebook","geosite-tiktok","geosite-netflix","geosite-amazon","geosite-geolocation-!cn","p_link"],
         "server": "proxyDns"
+      },
+      {
+        "rule_set": ["geosite-category-ads-all","geosite-adblock","a_link"],
+        "server": "block"
       }
     ],
     "final": "proxyDns",
