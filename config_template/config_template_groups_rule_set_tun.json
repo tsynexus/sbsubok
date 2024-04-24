@@ -109,6 +109,14 @@
   ],
   "outbounds": [
     {
+      "tag":"Proxy_S",
+      "type":"selector",
+      "outbounds":[
+        "Proxy",
+        "direct"
+      ]
+    }, 
+    {
       "tag":"Proxy",
       "type":"selector",
       "outbounds":[
@@ -117,14 +125,6 @@
         "{all}"
       ]
     },
-    {
-      "tag":"Proxy_S",
-      "type":"selector",
-      "outbounds":[
-        "Proxy",
-        "direct"
-      ]
-    },    
     {
       "tag":"Media",
       "type":"selector",
