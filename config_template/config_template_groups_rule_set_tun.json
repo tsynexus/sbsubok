@@ -75,7 +75,7 @@
         "server": "proxyDns"
       },
       {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","a_link"],
+        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
         "server": "block"
       }
     ],
@@ -305,7 +305,7 @@
         "outbound": "Proxy"
       },
       {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","a_link"],
+        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
         "outbound": "AdBlock"
       }      
     ],
@@ -491,7 +491,14 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adblock.srs",
         "download_detour": "Proxy"
-      },      
+      }, 
+      {
+        "format": "binary",
+        "tag": "geosite-adguard",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adguard.srs",
+        "download_detour": "Proxy"
+      },
       {
         "type": "remote",
         "tag": "a_link",
