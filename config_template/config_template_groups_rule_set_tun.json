@@ -129,6 +129,7 @@
       "tag":"Media",
       "type":"selector",
       "outbounds":[
+        "proxy",
         "{all}",
         "direct"
       ]
