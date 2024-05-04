@@ -58,18 +58,15 @@
         "server": "proxyDns"
       },
       {
-        "inbound": "tun",
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
-        "server": "fakeip",
-        "rewrite_ttl": 1
-      },
-      {
         "rule_set": ["geosite-bilibili","geosite-cn","geosite-private","geosite-bilibili","geosite-apple","geosite-microsoft","d_link"],
         "server": "localDns"
       },   
+      {
+        "inbound": "tun",
+        "query_type": ["A","AAAA"],
+        "server": "fakeip",
+        "rewrite_ttl": 1
+      },
       {
         "rule_set": ["geosite-openai","geosite-youtube","geosite-google","geosite-github","geosite-telegram","geosite-twitter","geosite-facebook","geosite-tiktok","geosite-netflix","geosite-amazon","geosite-geolocation-!cn","p_link"],
         "server": "proxyDns"
