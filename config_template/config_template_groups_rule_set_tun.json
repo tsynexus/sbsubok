@@ -20,8 +20,7 @@
   "dns": {
     "fakeip": {
       "enabled": true,
-      "inet4_range": "198.18.0.0/15",
-      "inet6_range": "fc00::/18"
+      "inet4_range": "198.18.0.0/15"
     },
     "servers": [
       {
@@ -83,7 +82,6 @@
       "tag": "tun",
       "type": "tun",
       "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::0/126",
       "stack": "system",
       "auto_route": true,
       "sniff": true,
