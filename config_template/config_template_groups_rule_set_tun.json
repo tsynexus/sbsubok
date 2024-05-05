@@ -275,7 +275,7 @@
         "outbound": "Proxy"
       },
       {
-        "rule_set": ["p_link"],
+        "rule_set": ["p_link","geosite-github"],
         "outbound": "Proxy"
       },      
       {
@@ -283,7 +283,7 @@
         "outbound": "direct"
       },
       {
-        "rule_set": ["geoip-cn","geosite-cn","geosite-private","geosite-apple","geosite-microsoft","geosite-bilibili","geosite-bilibili","alibaba","d_link"],
+        "rule_set": ["geoip-cn","geosite-cn","geosite-private","geosite-apple","geosite-microsoft","geosite-bilibili","alibaba","d_link"],
         "outbound": "direct"
       },
       {
@@ -299,7 +299,7 @@
         "outbound": "Media"
       },
       {
-        "rule_set": ["geoip-google","geoip-telegram","geosite-github","geoip-twitter","geoip-facebook","geosite-google","geosite-telegram","geosite-twitter","geosite-facebook","geosite-amazon","geosite-geolocation-!cn"],
+        "rule_set": ["geoip-google","geoip-telegram","geoip-twitter","geoip-facebook","geosite-google","geosite-telegram","geosite-twitter","geosite-facebook","geosite-amazon","geosite-geolocation-!cn"],
         "outbound": "Proxy"
       },
       {
