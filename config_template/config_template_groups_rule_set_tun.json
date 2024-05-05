@@ -64,8 +64,7 @@
       {
         "inbound": "tun",
         "query_type": ["A","AAAA"],
-        "server": "fakeip",
-        "rewrite_ttl": 10
+        "server": "fakeip"
       },
       {
         "rule_set": ["geosite-openai","geosite-youtube","geosite-google","geosite-github","geosite-telegram","geosite-twitter","geosite-facebook","geosite-tiktok","geosite-netflix","geosite-amazon","geosite-geolocation-!cn","p_link"],
