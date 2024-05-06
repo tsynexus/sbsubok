@@ -57,10 +57,6 @@
         "server": "proxyDns"
       },
       {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
-        "server": "block"
-      },       
-      {
         "rule_set": ["geosite-cn","geosite-private","geosite-bilibili","geosite-apple","geosite-microsoft","d_link"],
         "server": "localDns"
       },   
@@ -70,6 +66,10 @@
         "server": "fakeip",
         "rewrite_ttl": 1
       },
+      {
+        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
+        "server": "block"
+      },       
       {
         "rule_set": ["geosite-openai","geosite-youtube","geosite-google","geosite-github","geosite-telegram","geosite-twitter","geosite-facebook","geosite-tiktok","geosite-netflix","geosite-amazon","geosite-geolocation-!cn","p_link"],
         "server": "proxyDns"
