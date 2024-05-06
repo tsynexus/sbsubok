@@ -57,6 +57,10 @@
         "server": "proxyDns"
       },
       {
+        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
+        "server": "block"
+      },       
+      {
         "rule_set": ["geosite-cn","geosite-private","geosite-bilibili","geosite-apple","geosite-microsoft","d_link"],
         "server": "localDns"
       },   
@@ -69,10 +73,6 @@
       {
         "rule_set": ["geosite-openai","geosite-youtube","geosite-google","geosite-github","geosite-telegram","geosite-twitter","geosite-facebook","geosite-tiktok","geosite-netflix","geosite-amazon","geosite-geolocation-!cn","p_link"],
         "server": "proxyDns"
-      },
-      {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
-        "server": "block"
       }
     ],
     "independent_cache": true,
@@ -273,6 +273,10 @@
         "outbound": "Proxy"
       },
       {
+        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
+        "outbound": "AdBlock"        
+      },
+      {
         "rule_set": ["p_link","geosite-github"],
         "outbound": "Proxy"
       },      
@@ -299,10 +303,6 @@
       {
         "rule_set": ["geoip-google","geoip-telegram","geoip-twitter","geoip-facebook","geosite-google","geosite-telegram","geosite-twitter","geosite-facebook","geosite-amazon","geosite-geolocation-!cn"],
         "outbound": "Proxy"
-      },
-      {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
-        "outbound": "AdBlock"
       }      
     ],
     "rule_set": [
