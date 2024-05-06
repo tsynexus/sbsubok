@@ -266,10 +266,6 @@
         "outbound": "Proxy"
       },
       {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
-        "outbound": "AdBlock"        
-      },
-      {
         "rule_set": ["p_link","geosite-github"],
         "outbound": "Proxy"
       },      
@@ -288,6 +284,10 @@
       {
         "rule_set": "geosite-tiktok",
         "outbound": "TikTok"
+      },
+      {
+        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
+        "outbound": "AdBlock"        
       },
       {
         "rule_set": ["geoip-netflix","geosite-netflix","geosite-youtube"],
