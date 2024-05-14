@@ -20,17 +20,18 @@
   "dns": {
     "fakeip": {
       "enabled": true,
-      "inet4_range": "198.18.0.0/15"
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"      
     },
     "servers": [
       {
-        "tag": "proxyDns",
+        "tag": "gg_Dns",
         "address": "tls://8.8.8.8",
         "detour": "Proxy"
       },
       {
-        "tag": "localDns",
-        "address": "https://120.53.53.53/dns-query",
+        "tag": "tx_Dns",
+        "address": "tls://120.53.53.53",
         "detour": "direct"
       },
       {
@@ -45,34 +46,34 @@
     "rules": [
       {
         "outbound": "any",
-        "server": "localDns",
+        "server": "tx_Dns",
         "disable_cache": true
       },
       {
         "clash_mode": "direct",
-        "server": "localDns"
+        "server": "tx_Dns"
       },
       {
         "clash_mode": "global",
-        "server": "proxyDns"
+        "server": "gg_Dns"
       },
       {
+        "rule_set": ["geosite-category-ads-all","geosite-adblock","a_link"],
+        "server": "block"
+      },       
+      {
         "rule_set": ["geosite-cn","geolocation-cn","geosite-private","geosite-apple","geosite-microsoft","d_link"],
-        "server": "localDns"
+        "server": "tx_Dns"
       },   
+      {
+        "rule_set": ["geosite-adguard"],
+        "server": "block"
+      },       
       {
         "inbound": "tun",
         "query_type": ["A","AAAA"],
         "server": "fakeip",
         "rewrite_ttl": 1
-      },
-      {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
-        "server": "block"
-      },       
-      {
-        "rule_set": ["geosite-openai","geosite-youtube","geosite-google","geosite-github","geosite-telegram","geosite-twitter","geosite-facebook","geosite-tiktok","geosite-netflix","geosite-disney","geosite-amazon","geolocation-!cn","p_link"],
-        "server": "proxyDns"
       }
     ],
     "independent_cache": true,
@@ -83,29 +84,18 @@
       "tag": "tun",
       "type": "tun",
       "inet4_address": "172.19.0.1/30",
+      "inet6_address": "fdfe:dcba:9876::0/126",
       "stack": "system",
       "auto_route": true,
+      "strict_route": true,
       "sniff": true,
       "sniff_override_destination": true,
-      "platform": {
-        "http_proxy": {
-          "enabled": true,
-          "server": "127.0.0.1",
-          "server_port": 7890
-        }
-      }
-    },
-    {
-      "tag": "mixed",
-      "type": "mixed",
-      "listen": "127.0.0.1",
-      "listen_port": 7890,
-      "sniff": true
-    }
+      "endpoint_independent_nat": false
+    }    
   ],
   "outbounds": [
     {
-      "tag":"Proxy_S",
+      "tag":"其他",
       "type":"selector",
       "outbounds":[
         "Proxy",
@@ -122,7 +112,7 @@
       ]
     },
     {
-      "tag":"Media",
+      "tag":"媒体",
       "type":"selector",
       "outbounds":[
         "Proxy",
@@ -131,7 +121,7 @@
       ]
     },        
     {
-      "tag":"OpenAI",
+      "tag":"AI",
       "type":"selector",
       "outbounds":[
         "Singapore",
@@ -153,7 +143,7 @@
       "default": "Japan"
     },
     {
-      "tag":"AdBlock",
+      "tag":"广告",
       "type":"selector",
       "outbounds":[
         "block",
@@ -238,7 +228,7 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "Proxy_S",
+    "final": "其他",
     "rules": [
       {
         "type": "logical",
@@ -262,6 +252,10 @@
         "outbound": "Proxy"
       },
       {
+        "rule_set": ["geosite-category-ads-all","geosite-adblock","a_link"],
+        "outbound": "block"        
+      },
+      {
         "rule_set": ["p_link","geosite-github"],
         "outbound": "Proxy"
       },      
@@ -275,19 +269,19 @@
       },
       {
         "rule_set": ["geosite-openai"],
-        "outbound": "OpenAI"
+        "outbound": "AI"
       },
       {
         "rule_set": ["geosite-tiktok"],
         "outbound": "TikTok"
       },
       {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","geosite-adguard","a_link"],
-        "outbound": "AdBlock"        
+        "rule_set": ["geosite-adguard"],
+        "outbound": "广告"
       },
       {
         "rule_set": ["geosite-disney","geosite-netflix","geoip-netflix","geosite-youtube"],
-        "outbound": "Media"
+        "outbound": "媒体"
       },
       {
         "rule_set": ["geolocation-!cn","geosite-google","geoip-google","geosite-telegram","geoip-telegram","geosite-twitter","geoip-twitter","geosite-facebook","geosite-amazon"],
