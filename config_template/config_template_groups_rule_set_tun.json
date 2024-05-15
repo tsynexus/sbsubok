@@ -58,7 +58,7 @@
         "server": "gg_Dns"
       },
       {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","a_link"],
+        "rule_set": ["geosite-category-ads-all","a_link"],
         "server": "block"
       },       
       {
@@ -66,7 +66,7 @@
         "server": "tx_Dns"
       },   
       {
-        "rule_set": ["geosite-adguard"],
+        "rule_set": ["geosite-adblock","geosite-adguard"],
         "server": "block"
       },       
       {
