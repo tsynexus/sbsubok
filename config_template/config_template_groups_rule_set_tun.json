@@ -26,12 +26,12 @@
     "servers": [
       {
         "tag": "tx_Dns",
-        "address": "tls://120.53.53.53",
+        "address": "https://120.53.53.53/dns-query",
         "detour": "direct"
       },
       {
         "tag": "gg_Dns",
-        "address": "tls://8.8.8.8",
+        "address": "https://8.8.8.8/dns-query",
         "detour": "Proxy"
       },
       {
