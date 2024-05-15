@@ -25,14 +25,14 @@
     },
     "servers": [
       {
-        "tag": "gg_Dns",
-        "address": "tls://8.8.8.8",
-        "detour": "Proxy"
-      },
-      {
         "tag": "tx_Dns",
         "address": "tls://120.53.53.53",
         "detour": "direct"
+      },
+      {
+        "tag": "gg_Dns",
+        "address": "tls://8.8.8.8",
+        "detour": "Proxy"
       },
       {
         "tag": "fakeip",
@@ -108,6 +108,18 @@
     }
   ],
   "outbounds": [
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
     {
       "tag":"其他",
       "type":"selector",
@@ -226,18 +238,6 @@
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
-      "type": "block",
-      "tag": "block"
     }
   ],
   "route": {
@@ -266,13 +266,13 @@
         "outbound": "Proxy"
       },
       {
-        "rule_set": ["geosite-category-ads-all","geosite-adblock","a_link"],
-        "outbound": "block"        
-      },
-      {
         "rule_set": ["p_link","geosite-github"],
         "outbound": "Proxy"
       },      
+      {
+        "rule_set": ["geosite-category-ads-all","a_link"],
+        "outbound": "block"        
+      },
       {
         "ip_is_private": true,
         "outbound": "direct"
@@ -290,7 +290,7 @@
         "outbound": "TikTok"
       },
       {
-        "rule_set": ["geosite-adguard"],
+        "rule_set": ["geosite-adblock","geosite-adguard"],
         "outbound": "广告"
       },
       {
