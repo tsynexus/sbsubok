@@ -1,7 +1,6 @@
 {
   "log": {
-    "level": "info",
-    "timestamp": true
+    "level": "info"
   },
   "experimental": {
     "clash_api": {
@@ -19,7 +18,7 @@
     }
   },
   "dns": {
-    "final": "gg_Dns",
+    "final": "cf_Dns",
     "strategy": "ipv4_only",
     "independent_cache": true,
     "fakeip": {
@@ -33,7 +32,7 @@
         "detour": "direct"
       },
       {
-        "tag": "gg_Dns",
+        "tag": "cf_Dns",
         "address": "https://1.1.1.1/dns-query",
         "detour": "Proxy"
       },
@@ -57,7 +56,7 @@
       },
       {
         "clash_mode": "global",
-        "server": "gg_Dns"
+        "server": "cf_Dns"
       },
       {
         "rule_set": ["geosite-category-ads-all","a_link"],
@@ -83,7 +82,7 @@
             "rule_set": "geoip-cn"
           }
         ],
-        "server": "gg_Dns",
+        "server": "cf_Dns",
         "client_subnet": "114.114.114.114/24"
       },
       {
