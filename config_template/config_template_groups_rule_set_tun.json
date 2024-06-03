@@ -12,12 +12,16 @@
       "external_ui_download_detour": "direct",
       "default_mode": "rule"
     },
-  "cache_file": {
-    "enabled": true,
-    "store_fakeip": true
+    "cache_file": {
+      "enabled": true,
+      "store_fakeip": true,
+      "store_rdrc": true
     }
   },
   "dns": {
+    "final": "cfdns",
+    "strategy": "ipv4_only",
+    "independent_cache": true,
     "fakeip": {
       "enabled": true,
       "inet4_range": "198.18.0.0/15"
@@ -45,8 +49,7 @@
     "rules": [
       {
         "outbound": "any",
-        "server": "tx_Dns",
-        "disable_cache": true
+        "server": "tx_Dns"
       },
       {
         "clash_mode": "direct",
@@ -61,26 +64,38 @@
         "server": "block"
       },       
       {
-        "rule_set": ["geosite-cn","geolocation-cn","geosite-private","geosite-apple","geosite-microsoft","d_link"],
+        "rule_set": ["geosite-cn","geolocation-cn","d_link"],
         "server": "tx_Dns"
       },   
       {
         "rule_set": ["geosite-adblock","geosite-adguard"],
         "server": "block"
-      },       
+      }, 
       {
-        "inbound": "tun",
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geolocation-!cn",
+            "invert": true
+          },
+          {
+            "rule_set": "geoip-cn"
+          }
+        ],
+        "server": "cfdns",
+        "client_subnet": "114.114.114.114/24"
+      },
+      {
         "query_type": ["A","AAAA"],
         "server": "fakeip",
         "rewrite_ttl": 1
       }
-    ],
-    "independent_cache": true,
-    "strategy": "ipv4_only"
+    ]
   },
   "inbounds": [
     {
-      "tag": "tun",
+      "tag": "tun0",
       "type": "tun",
       "inet4_address": "172.19.0.0/30",
       "stack": "system",
@@ -239,8 +254,8 @@
     }
   ],
   "route": {
-    "auto_detect_interface": true,
     "final": "其他",
+    "auto_detect_interface": true,
     "rules": [
       {
         "type": "logical",
@@ -254,6 +269,23 @@
           }
         ],
         "outbound": "dns-out"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          },
+          {
+            "protocol": "stun"
+          }
+        ],
+        "outbound": "block"
       },
       {
         "clash_mode": "direct",
